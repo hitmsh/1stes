@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="hitmsh.js"></script>
+    <style>
+
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #adc096;
+        text-align: center;
+      
+      }
+     /* 🔥 Animated Gradient Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Use local image as base layer, keep animated gradient on top as overlay */
+      background-image: url("file:///C:/Users/HITESH/Downloads/Dark%20sky%201.jpeg"),
+                        linear-gradient(-45deg, #0c29287f, #21273f75, #120f2144, #545e6572, #35353c5a);
+      background-size: cover, 400% 400%;
+      background-position: center, 0% 50%;
+      background-repeat: no-repeat, repeat;
+      background-blend-mode: overlay;
+      animation: gradientMove 10s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ✨ Floating Glow Particles */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(234, 218, 161, 0.971) 2px, transparent 2px);
+      background-size: 100px 100px;
+      animation: moveStars 2s linear infinite;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to   { background-position: -1000px 1000px; }
+    }
+    
+      .nav-links { list-style: none; display: flex; } .nav-links a { text-decoration: none; color: #fff; transition: 0.3s; } .nav-links a:hover { color: #00aaff; } .theme-toggle { cursor: pointer; font-size: 1.2rem; }
+      
+      .main {
+        width: 270px;
+        padding: 0px;
+        background-image: url("file:///C:/Users/HITESH/Downloads/download%20(35)_upscayl_4x_upscayl-standard-4x.png");
+        background-size: cover, 1000% 1000%;
+        background-position: center, 0% 0%;
+        border-radius: 27px;
+        box-shadow: 0 0 0px rgba(97, 97, 97, 0.17);
+      }
+
+      .profile-pic {
+        display: block;
+        margin: 0 auto 5px;
+        border-radius: 0%;
+        background-color:linear-gradient(-45deg, #0c2928, #2b6345, #29243e, #22351b, #0c0f09);
+      }
+      .theme-toggle {
+       cursor: pointer;
+       font-size: 1.2rem;
+      }
+
+      h1 {
+        color: #c5baac;
+        margin-bottom: 15px;
+      }
+      h2 {
+        color: #cda13b;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        color: #ffe75fb4;
+        margin-bottom: 15px;
+      }
+
+      h4 {
+        color: #bbaf7ee6;
+        margin-bottom: 25px;
+      }
+
+      .social-links {
+        margin-top: 20px;
+        display: block;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .social-links a {
+        color: #ffffff;
+        text-decoration: none;
+        border: 2px solid linear-gradient(rgba(234, 218, 161, 0.971) 2px, transparent 2px);
+        background-color: linear-gradient(-45deg, #0c2928, #2b6345, #29243e, #22351b, #0c0f09);
+        display: block;
+        font-size: 16px;
+        margin: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        gap: 30px;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: radial-gradient(rgba(234, 218, 161, 0.971) 2px, transparent 2px);
+        background-color: linear-gradient(-45deg, #0c2928, #2b6345, #29243e, #22351b, #0c0f09);
+        border-color:radial-gradient(rgba(234, 218, 161, 0.971) 2px, transparent 2px);
+        transform: scale(1.2);
+      }
+
+      .icon {
+        width: 100px;
+        height: 75px;
+        object-fit: contain;
+        margin: 10px;
+        transition: transform 0.3s ease;
+        border-radius:5px; /* optional: to round icon edges */
+      }
+
+      .icon:hover {
+        transform: scale(1.75);
+      }
+
+      footer {
+        margin-top: 10px;
+        padding: 15px 5px;
+        background-color: linear-gradient(-45deg, #0c2928, #2b6345, #29243e, #22351b, #0c0f09);
+        color: #cfcfcf;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(117, 97, 43, 0.673); 
+      }
+      /* Light Theme */
+      .light {
+        background: linear-gradient(135deg, #442a77, #109daa);
+        color: #111;
+      }       
+
+      .light .nav-links a {
+        color: #111;
+      }
+
+      .light .nav-links a:hover {
+        color: #007acc;
+      }
+
+      .light .btn {
+        background: #007acc;
+      }
+
+      .light .typing {
+        color: #007acc; /* darker blue for contrast */
+      }
+
+      /* Use local file as background image (file URI). Fall back to animated gradient overlay.
+         Encoded space as %20. The image is placed below a moving gradient to preserve the original animated feel. */
+      .light::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("file:///C:/Users/HITESH/Downloads/Dark%20sky%202.jpeg"),
+                          linear-gradient(-45deg, #8d66273f, #7a1e1e8c, #bbb05c3b, #746b254d, #ae802a65);
+        background-size: cover, 400% 400%;
+        background-position: center, 0% 50%;
+        background-repeat: no-repeat, repeat;
+        background-blend-mode: overlay;
+        animation: gradientMove 12s ease infinite;
+        z-index: -2;
+      }
+
+      .light::after {
+        background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1.5px, transparent 1.5px);
+        background-size: 120px 120px;
+        animation: moveStars 60s linear infinite;
+        opacity: 0.25;
+        z-index: -1;
+      }
+
+      .light .highlight {
+        color: #007acc;
+        text-shadow: 0 0 10px rgba(0, 122, 204, 0.3);
+      }
+
+      .light .btn {
+        box-shadow: 0 0 15px rgba(0, 122, 204, 0.3);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <img
+        class="profile-pic"
+        src="C:\Users\HITESH\Downloads\dpfp.gif"
+        alt="Profile picture"
+        style="width: 125px; border-radius: 50px"
+      />
+      <nav class="navbar">
+      <div class="profile-pic" style="text-align: center;"><h1>Hitesh Saini</h1></div>
+      <ul class="nav-links" style="padding-left: 20px;">
+        <li><a href="#about"><h4> About &nbsp;</h4></a></li>
+        <li><a href="#skills"><h4> Skills&nbsp; </h4></a></li>
+        <li><a href="#projects"><h4> Projects&nbsp;</h4></a></li>
+        <li><a href="#social-links"><h4> Contact</h4></a></li>
+      </ul>
+      <div class="theme-toggle">🌙</div>
+       <h3>Human with desires</h3>
+       <h4>"Available on-"</h4>
+       </nav>
+
+     <section id="about" class="about">
+       <h3>About Me</h3>
+       <p><h4>
+         A Computer Science student passionate about Cyber-Security, AI, and Business.
+         Love the knowledge of technologies.
+       </h4></p>
+     </section>
+
+     <section id="skills" class="skills">
+       <h2>Skills</h2>
+       <div class="skill-grid"><h4><u>
+         <div class="skill-card">Cyber-Security</div>
+         <div class="skill-card">HTML</div>
+         <div class="skill-card">JavaScript</div>
+         <div class="skill-card">Editing</div>
+         <div class="skill-card">Scripting</div>
+         <div class="skill-card">Networking</div>
+       </u> </h4> </div>
+      </section>
+
+     <section id="social-links" class="social-links">
+       <h2>Contact</h2>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hitesh-saini-a16695311/" target="_blank"
+          ><img
+            src="C:\Users\HITESH\Downloads\2496097.png"
+            alt="LinkedIn"
+            class="icon"
+        /></a>
+        <a href="https://www.youtube.com/@hitmsh" target="_blank"
+          ><img
+            src="https://img.icons8.com/color/100/youtube-play.png"
+            alt="YouTube"
+            class="icon"
+        /></a>
+        <a href="https://www.github.com/hitmsh" target="_blank">
+          <img
+            src="https://img.icons8.com/?size=100&id=62856&format=png&color=000000"
+            alt="GitHub"
+            class="icon"
+        /></a>
+        <a href="https://www.x.com/hitmsh" target="_blank">
+          <img
+            src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000"
+            alt="X (Twitter)"
+            class="icon"
+        /></a>
+        <a href="https://anilist.co/user/hitmsh/" target="_blank"
+          ><img
+            src="https://imgs.search.brave.com/LpBnsL3VxWMx41ux9jlfsfat8bSR4crXHddfXHYeuOw/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9wbGF5/LWxoLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9iaDJsZXBOSDZF/TU50a1QyaTRwSmps/RXFTa2VmSUJwMzVm/YVlOeGVtTExFTExy/X3g4ZXVuclE3YTND/ZUViYVYwUWc"
+            alt="Anilist"
+            class="icon"
+        /></a>
+        <a href="https://www.snapchat.com/add/hitmsh?share_id=e-KqoFcWaQs&locale=en-GB" target="_blank">
+          <img
+            src="https://img.icons8.com/?size=100&id=J7TvpV0ob6HX&format=png&color=000000"
+            alt="Snapchat"
+            class="icon"
+        /></a>
+        <a href="t.me/YourDqddy" target="_blank"
+          ><img
+            src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+            alt="Telegram"
+            class="icon"
+        /></a>
+        <a href="https://www.facebook.com/hitmsh" target="_blank"
+          ><img
+            src="https://img.icons8.com/fluency/100/facebook-new.png"
+            alt="Facebook"
+            class="icon"
+        /></a>
+        <a href="https://www.pinterest.com/hitmsh" target="_blank"
+          ><img
+            src="https://img.icons8.com/?size=100&id=63676&format=png&color=000000"
+            alt="Pinterest"
+            class="icon"
+        /></a>
+        <a href="discordapp.com/users/787282944431226880" target="_blank">
+          <img
+            src="https://img.icons8.com/?size=100&id=2mIgusGquJFz&format=png&color=000000"
+            alt="Discord"
+            class="icon"
+        /></a>
+      </div></section>
+       <footer>
+      <p>Made with time by Hitesh</p>
+      <p>© 2025 All rights reserved</p>
+    </footer>
+   
+    </div>
+  </body>
+</html>
